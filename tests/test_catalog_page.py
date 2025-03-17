@@ -14,25 +14,25 @@ def test_check_title(browser):
 def test_check_content(browser):
     browser.get(f"{browser.base_url}/en-gb/catalog/desktops")
     wait = WebDriverWait(browser, 10, poll_frequency=1)
-    wait.until(EC.visibility_of_element_located((By.ID, "content")), message="")
+    wait.until(EC.visibility_of_element_located((By.ID, "content")))
 
 
 def test_check_display_control(browser):
     browser.get(f"{browser.base_url}/en-gb/catalog/desktops")
     wait = WebDriverWait(browser, 10, poll_frequency=1)
-    wait.until(EC.visibility_of_element_located((By.ID, "display-control")), message="")
+    wait.until(EC.visibility_of_element_located((By.ID, "display-control")))
 
 
 def test_check_input_sort(browser):
     browser.get(f"{browser.base_url}/en-gb/catalog/desktops")
     wait = WebDriverWait(browser, 10, poll_frequency=1)
-    wait.until(EC.visibility_of_element_located((By.ID, "input-sort")), message="")
+    wait.until(EC.visibility_of_element_located((By.ID, "input-sort")))
 
 
 def test_check_sidebar(browser):
     browser.get(f"{browser.base_url}/en-gb/catalog/desktops")
     wait = WebDriverWait(browser, 10, poll_frequency=1)
-    wait.until(EC.visibility_of_element_located((By.ID, "column-left")), message="")
+    wait.until(EC.visibility_of_element_located((By.ID, "column-left")))
 
 
 def test_change_currency(browser):
@@ -45,16 +45,13 @@ def test_change_currency(browser):
                 "#product-list > div:nth-child(1) > div > div.content > div > div > span.price-new",
             )
         ),
-        message="",
     ).text
     wait.until(
-        EC.visibility_of_element_located((By.CLASS_NAME, "dropdown")), message=""
-    ).click()
+        EC.visibility_of_element_located((By.CLASS_NAME, "dropdown"))).click()
     wait.until(
         EC.visibility_of_element_located(
             (By.CSS_SELECTOR, "#form-currency > div > ul > li:nth-child(2) > a")
         ),
-        message="",
     ).click()
     item_second_prices_text = wait.until(
         EC.visibility_of_element_located(
@@ -63,6 +60,5 @@ def test_change_currency(browser):
                 "#product-list > div:nth-child(1) > div > div.content > div > div > span.price-new",
             )
         ),
-        message="",
     ).text
     assert item_first_prices_text != item_second_prices_text

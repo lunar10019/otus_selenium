@@ -16,17 +16,14 @@ def browser(request):
 
     driver = None
     if browser == "chrome":
-        print(f"Запуск Chrome с базовым URL: {base_url}")
         driver = webdriver.Chrome()
     elif browser == "firefox":
-        print(f"Запуск Firefox с базовым URL: {base_url}")
         driver = webdriver.Firefox()
     else:
         raise ValueError(f"Неизвестный браузер: {browser}")
 
     driver.base_url = base_url
     yield driver
-    print("Закрытие браузера...")
     if driver:
         driver.quit()
 

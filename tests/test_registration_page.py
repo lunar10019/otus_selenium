@@ -20,26 +20,22 @@ def test_check_title(browser):
 def test_check_content(browser):
     browser.get(f"{browser.base_url}/en-gb?route=account/register")
     wait = WebDriverWait(browser, 10, poll_frequency=1)
-    wait.until(EC.visibility_of_element_located((By.ID, "content")), message="")
+    wait.until(EC.visibility_of_element_located((By.ID, "content")))
 
 
 def test_check_subscribe_toggle(browser):
     browser.get(f"{browser.base_url}/en-gb?route=account/register")
     wait = WebDriverWait(browser, 10, poll_frequency=1)
-    wait.until(
-        EC.visibility_of_element_located((By.ID, "input-newsletter")), message=""
-    )
+    wait.until(EC.visibility_of_element_located((By.ID, "input-newsletter")))
 
 
 def test_check_account_register(browser):
     browser.get(f"{browser.base_url}/en-gb?route=account/register")
     wait = WebDriverWait(browser, 10, poll_frequency=1)
-    wait.until(
-        EC.visibility_of_element_located((By.ID, "account-register")), message=""
-    )
+    wait.until(EC.visibility_of_element_located((By.ID, "account-register")))
 
 
 def test_check_sidebar(browser):
     browser.get(f"{browser.base_url}/en-gb?route=account/register")
     wait = WebDriverWait(browser, 10, poll_frequency=1)
-    wait.until(EC.visibility_of_element_located((By.ID, "column-right")), message="")
+    wait.until(EC.visibility_of_element_located((By.ID, "column-right")))

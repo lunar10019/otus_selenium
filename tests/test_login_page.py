@@ -20,22 +20,22 @@ def test_check_title(browser):
 def test_check_content(browser):
     browser.get(f"{browser.base_url}/en-gb?route=account/login")
     wait = WebDriverWait(browser, 10, poll_frequency=1)
-    wait.until(EC.visibility_of_element_located((By.ID, "content")), message="")
+    wait.until(EC.visibility_of_element_located((By.ID, "content")))
 
 
 def test_check_email_input(browser):
     browser.get(f"{browser.base_url}/en-gb?route=account/login")
     wait = WebDriverWait(browser, 10, poll_frequency=1)
-    wait.until(EC.visibility_of_element_located((By.ID, "input-email")), message="")
+    wait.until(EC.visibility_of_element_located((By.ID, "input-email")))
 
 
 def test_check_password_input(browser):
     browser.get(f"{browser.base_url}/en-gb?route=account/login")
     wait = WebDriverWait(browser, 10, poll_frequency=1)
-    wait.until(EC.visibility_of_element_located((By.ID, "input-password")), message="")
+    wait.until(EC.visibility_of_element_located((By.ID, "input-password")))
 
 
 def test_check_account_login_page(browser):
     browser.get(f"{browser.base_url}/en-gb?route=account/login")
     wait = WebDriverWait(browser, 10, poll_frequency=1)
-    wait.until(EC.visibility_of_element_located((By.ID, "account-login")), message="")
+    wait.until(EC.visibility_of_element_located((By.ID, "account-login")))
