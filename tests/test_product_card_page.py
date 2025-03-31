@@ -1,35 +1,23 @@
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from page_objects.product_card import ProductCardPage
 
 
 def test_check_tabs(browser):
     browser.get(f"{browser.base_url}/index.php?route=product/product&path=57&product_id=49")
-    wait = WebDriverWait(browser, 10, poll_frequency=1)
-    wait.until(
-        EC.visibility_of_all_elements_located((By.CSS_SELECTOR, "#content > ul")),
-    )
-
+    ProductCardPage(browser).check_tabs()
 
 def test_check_content(browser):
     browser.get(f"{browser.base_url}/index.php?route=product/product&path=57&product_id=49")
-    wait = WebDriverWait(browser, 10, poll_frequency=1)
-    wait.until(EC.visibility_of_element_located((By.ID, "content")))
-
+    ProductCardPage(browser).check_content()
 
 def test_check_product_info(browser):
     browser.get(f"{browser.base_url}/index.php?route=product/product&path=57&product_id=49")
-    wait = WebDriverWait(browser, 10, poll_frequency=1)
-    wait.until(EC.visibility_of_element_located((By.ID, "product-info")))
-
+    ProductCardPage(browser).check_product_info()
 
 def test_check_button_cart(browser):
     browser.get(f"{browser.base_url}/index.php?route=product/product&path=57&product_id=49")
-    wait = WebDriverWait(browser, 10, poll_frequency=1)
-    wait.until(EC.visibility_of_element_located((By.ID, "button-cart")))
-
+    ProductCardPage(browser).check_button_cart()
 
 def test_check_account_form_product(browser):
     browser.get(f"{browser.base_url}/index.php?route=product/product&path=57&product_id=49")
-    wait = WebDriverWait(browser, 10, poll_frequency=1)
-    wait.until(EC.visibility_of_element_located((By.ID, "form-product")))
+    ProductCardPage(browser).check_account_form_product()
+
