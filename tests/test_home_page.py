@@ -5,21 +5,26 @@ def test_check_logo(browser):
     browser.get(f"{browser.base_url}")
     HomePage(browser).check_logo()
 
+
 def test_check_navbar(browser):
     browser.get(f"{browser.base_url}")
     HomePage(browser).check_navbar()
+
 
 def test_check_search(browser):
     browser.get(f"{browser.base_url}")
     HomePage(browser).check_search()
 
+
 def test_check_content(browser):
     browser.get(f"{browser.base_url}")
     HomePage(browser).check_content()
 
+
 def test_check_button_cart(browser):
     browser.get(f"{browser.base_url}")
     HomePage(browser).check_button_cart()
+
 
 def test_change_currency(browser):
     browser.get(f"{browser.base_url}")

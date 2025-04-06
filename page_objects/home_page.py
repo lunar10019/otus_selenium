@@ -8,8 +8,14 @@ class HomePage(BasePage):
     SEARCH = By.ID, "search"
     CONTENT = By.CSS_SELECTOR, "#content > h3"
     BUTTON_CART = By.ID, "header-cart"
-    PRICE_NEW = By.CSS_SELECTOR, "#content > div.row.row-cols-1.row-cols-sm-2.row-cols-md-3.row-cols-xl-4 > div:nth-child(1) > div > div.content > div > div > span.price-new"
-    CHANGED_PRICE_NEW = By.CSS_SELECTOR, "#content > div.row.row-cols-1.row-cols-sm-2.row-cols-md-3.row-cols-xl-4 > div:nth-child(1) > div > div.content > div > div > span.price-new"
+    PRICE_NEW = (
+        By.CSS_SELECTOR,
+        "#content > div.row.row-cols-1.row-cols-sm-2.row-cols-md-3.row-cols-xl-4 > div:nth-child(1) > div > div.content > div > div > span.price-new",
+    )
+    CHANGED_PRICE_NEW = (
+        By.CSS_SELECTOR,
+        "#content > div.row.row-cols-1.row-cols-sm-2.row-cols-md-3.row-cols-xl-4 > div:nth-child(1) > div > div.content > div > div > span.price-new",
+    )
     DROPDOWN = By.CLASS_NAME, "dropdown"
     FORM_CURRENCY = By.CSS_SELECTOR, "#form-currency > div > ul > li:nth-child(2) > a"
 
@@ -48,5 +54,3 @@ class HomePage(BasePage):
 
     def dropdown_is_not_visible(self):
         self.wait_until_element_is_not_visible(self.DROPDOWN)
-
-

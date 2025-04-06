@@ -28,8 +28,3 @@ class ProductCardPage(BasePage):
     def check_account_form_product(self):
         self.get_element(self.FORM_PRODUCT)
         return self
-
-
-
-
-

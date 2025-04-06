@@ -7,19 +7,19 @@ import string
 class ProductGenerator:
     @staticmethod
     def generate_product_name(length=10):
-        return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
+        return "".join(random.choices(string.ascii_letters + string.digits, k=length))
 
     @staticmethod
     def generate_meta_tag(length=10):
-        return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
+        return "".join(random.choices(string.ascii_letters + string.digits, k=length))
 
     @staticmethod
     def generate_product_model(length=10):
-        return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
+        return "".join(random.choices(string.ascii_letters + string.digits, k=length))
 
     @staticmethod
     def generate_keyword(length=10):
-        return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
+        return "".join(random.choices(string.ascii_letters + string.digits, k=length))
 
 
 class AdminPage(BasePage):
@@ -39,7 +39,6 @@ class AdminPage(BasePage):
     ADD_PRODUCT_BUTTON = By.XPATH, '// *[ @ id = "content"] / div[1] / div / div / a'
     SAVE_BUTTON = By.XPATH, '// *[ @ id = "content"] / div[1] / div / div / button'
     SUBMIT_LOGIN_BUTTON = By.CSS_SELECTOR, "#form-login button"
-
 
     product_name = ProductGenerator.generate_product_name()
     product_meta_tag = ProductGenerator.generate_meta_tag()

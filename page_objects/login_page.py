@@ -29,7 +29,3 @@ class LoginPage(BasePage):
     def check_account_login(self):
         self.get_element(self.ACCOUNT_LOGIN)
         return self
-
-
-
-

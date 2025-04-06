@@ -7,21 +7,23 @@ import string
 class UserGenerator:
     @staticmethod
     def generate_first_name(length=10):
-        return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
+        return "".join(random.choices(string.ascii_letters + string.digits, k=length))
 
     @staticmethod
     def generate_last_name(length=10):
-        return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
+        return "".join(random.choices(string.ascii_letters + string.digits, k=length))
 
     @staticmethod
     def generate_email(domain="example.com"):
         username_length = random.randint(5, 10)
-        username = ''.join(random.choices(string.ascii_lowercase + string.digits, k=username_length))
+        username = "".join(
+            random.choices(string.ascii_lowercase + string.digits, k=username_length)
+        )
         return f"{username}@{domain}"
 
     @staticmethod
     def generate_password(length=10):
-        return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
+        return "".join(random.choices(string.ascii_letters + string.digits, k=length))
 
 
 class RegistrationPage(BasePage):
@@ -38,9 +40,8 @@ class RegistrationPage(BasePage):
     CONTINUE = By.XPATH, '//*[@id="form-register"]/div/button'
     TOGGLE = By.XPATH, '//*[@id="form-register"]/div/div/input'
 
-
     user_first_name = UserGenerator.generate_first_name()
-    user_last_name= UserGenerator.generate_last_name()
+    user_last_name = UserGenerator.generate_last_name()
     user_email = UserGenerator.generate_email()
     user_password = UserGenerator.generate_password()
 

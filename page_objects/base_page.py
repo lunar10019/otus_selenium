@@ -4,7 +4,6 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 
 class BasePage:
-
     def __init__(self, browser):
         self.browser = browser
 
@@ -12,13 +11,19 @@ class BasePage:
         return f"//*[text()='{text}']"
 
     def get_element(self, locator: tuple[str, str], timeout=3):
-        return WebDriverWait(self.browser, timeout).until(EC.visibility_of_element_located(locator))
+        return WebDriverWait(self.browser, timeout).until(
+            EC.visibility_of_element_located(locator)
+        )
 
     def get_elements(self, locator: tuple[str, str], timeout=3):
-        return WebDriverWait(self.browser, timeout).until(EC.visibility_of_all_elements_located(locator))
+        return WebDriverWait(self.browser, timeout).until(
+            EC.visibility_of_all_elements_located(locator)
+        )
 
     def click(self, locator: tuple[str, str]):
-        ActionChains(self.browser).move_to_element(self.get_element(locator)).pause(0.3).click().perform()
+        ActionChains(self.browser).move_to_element(self.get_element(locator)).pause(
+            0.3
+        ).click().perform()
 
     def input_value(self, locator: tuple[str, str], text: str):
         self.get_element(locator).click()
@@ -27,10 +32,14 @@ class BasePage:
             self.get_element(locator).send_keys(l)
 
     def wait_until_element_is_not_visible(self, locator: tuple[str, str], timeout=10):
-        return WebDriverWait(self.browser, timeout).until(EC.invisibility_of_element_located(locator))
+        return WebDriverWait(self.browser, timeout).until(
+            EC.invisibility_of_element_located(locator)
+        )
 
-    def check_text(self, element, expected_title=''):
+    def check_text(self, element, expected_title=""):
         if element is None:
             raise ValueError("Element is None. Unable to check text.")
 
-        assert element.text == expected_title, f"Expected '{expected_title}', but got '{element.text}'"
+        assert element.text == expected_title, (
+            f"Expected '{expected_title}', but got '{element.text}'"
+        )
