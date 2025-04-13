@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver.common.by import By
 from page_objects.base_page import BasePage
 import random
@@ -45,35 +46,42 @@ class AdminPage(BasePage):
     product_product_model = ProductGenerator.generate_product_model()
     product_keyword = ProductGenerator.generate_product_model()
 
+    @allure.step("Ввожу логин и пароль в форму и нажимаю сабмит")
     def login_admin(self, username, password):
         self.input_value(self.LOGIN_INPUT, username)
         self.input_value(self.PASSWORD_INPUT, password)
         self.click(self.SUBMIT_LOGIN_BUTTON)
         return self
 
+    @allure.step("Жду кнопку выхода из админки")
     def wait_logout_button(self):
         self.get_element(self.LOGOUT_LINK)
         return self
 
+    @allure.step("Нажимаю на кнопку выхода из админки")
     def click_logout_button(self):
         self.get_element(self.LOGOUT_LINK)
         self.click(self.LOGOUT_LINK)
         return self
 
+    @allure.step("Жду форму логина")
     def wait_form_login(self):
         self.get_element(self.FORM_LOGIN)
         return self
 
+    @allure.step("Перехожу в каталог")
     def open_products(self):
         self.click(self.CATALOG)
         self.get_element(self.PRODUCTS_LINK)
         self.click(self.PRODUCTS_LINK)
         return self
 
+    @allure.step("Нажимаю на кнопку добавления продукта")
     def click_on_add_product(self):
         self.click(self.ADD_PRODUCT_BUTTON)
         return self
 
+    @allure.step("Заполняю форму добавления нового продукта")
     def fill_form_new_product(self):
         self.input_value(self.NAME_INPUT, self.product_name)
         self.input_value(self.META_TAG_INPUT, self.product_meta_tag)
@@ -85,10 +93,12 @@ class AdminPage(BasePage):
         self.input_value(self.KEYWORD_INPUT, self.product_keyword)
         return self
 
+    @allure.step("Сохраняю форму добавления нового продукта")
     def save_form(self):
         self.click(self.SAVE_BUTTON)
         return self
 
+    @allure.step("Проверяю что новый продукт успешно добавлен")
     def check_added_success(self):
         el = self.get_element(self.ALERT)
         self.check_text(el, "Success: You have modified products!")
