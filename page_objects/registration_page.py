@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver.common.by import By
 from page_objects.base_page import BasePage
 import random
@@ -45,31 +46,38 @@ class RegistrationPage(BasePage):
     user_email = UserGenerator.generate_email()
     user_password = UserGenerator.generate_password()
 
+    @allure.step("Проверяю заголовок")
     def check_title(self):
         el = self.get_element(self.TITLE)
         self.check_text(el, "Register Account")
         return self
 
+    @allure.step("Проверяю отображение контента")
     def check_content(self):
         self.get_element(self.CONTENT)
         return self
 
+    @allure.step("Проверяю отображение свитчера подписки")
     def check_subscribe_toggle(self):
         self.get_element(self.INPUT_NEWSLETTER)
         return self
 
+    @allure.step("Проверяю отобржение кнопки регистрации")
     def check_account_register(self):
         self.get_element(self.ACCOUNT_REGISTER)
         return self
 
+    @allure.step("Проверяю отображение сайдбара")
     def check_sidebar(self):
         self.get_element(self.SIDEBAR)
         return self
 
+    @allure.step("Жду отображения формы регистрации")
     def wait_form_registration(self):
         self.get_element(self.FORM_REGISTRATION)
         return self
 
+    @allure.step("Заполняю форму регистрации")
     def fill_form_registration(self):
         self.input_value(self.FIRST_NAME_INPUT, self.user_first_name)
         self.input_value(self.LAST_NAME_INPUT, self.user_last_name)
@@ -77,10 +85,12 @@ class RegistrationPage(BasePage):
         self.input_value(self.PASSWORD_INPUT, self.user_password)
         return self
 
+    @allure.step("Соглашаюсь с политикой конфиденциальности")
     def privacy_policy_agree(self):
         self.click(self.TOGGLE)
         return self
 
+    @allure.step("Нажимаю на кнопку регистрации")
     def register_button(self):
         self.click(self.CONTINUE)
         return self
